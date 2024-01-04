@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { uploadFile, listObjects, downloadFile } from './S3Service';
+import { uploadFile, listObjects, downloadFile } from './services/S3Service';
 
 const S3Component = () => {
   const [file, setFile] = useState(null);
@@ -13,7 +13,8 @@ const S3Component = () => {
   const handleUpload = async () => {
     try {
       if (file) {
-        await uploadFile(file, 'YOUR_BUCKET_NAME', 'folderName', file.name);
+        console.log(file)
+        await uploadFile(file, 'bqcket100', 'images', file.name);
         // Optionally, you can update the UI or perform other actions after uploading.
       }
     } catch (error) {
